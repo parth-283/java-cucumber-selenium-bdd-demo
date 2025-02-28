@@ -52,7 +52,7 @@ These instructions will guide you through setting up and running the project on 
 To run the Cucumber tests, use the following Maven command:
 
 ```bash
-mvn test
+mvn test```
 
 This command will execute the tests defined in the feature files and generate a test report.
 
