@@ -32,24 +32,28 @@ These instructions will guide you through setting up and running the project on 
 1.  Clone the repository:
 
     ```bash
-    git clone [repository URL]```
+    git clone [repository URL]
+    ```
 
 2.  Navigate to the project directory:
 
     ```bash
-    cd java-cucumber-selenium-bdd-demo```
+    cd java-cucumber-selenium-bdd-demo
+    ```
 
 3.  Build the project using Maven:
 
     ```bash
-    mvn clean install```
+    mvn clean install
+    ```
 
 ## Running the Tests
 
 To run the Cucumber tests, use the following Maven command:
 
 ```bash
-mvn test```
+mvn test
+```
 
 This command will execute the tests defined in the feature files and generate a test report.
 
