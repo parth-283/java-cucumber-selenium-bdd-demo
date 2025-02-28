@@ -57,8 +57,8 @@ mvn test```
 This command will execute the tests defined in the feature files and generate a test report.
 
 ## Project Structure
-```
-java-cucumber-selenium-bdd-demo/
+
+```java-cucumber-selenium-bdd-demo/
 ├── src/
 │   ├── main/
 │   │   └── java/
