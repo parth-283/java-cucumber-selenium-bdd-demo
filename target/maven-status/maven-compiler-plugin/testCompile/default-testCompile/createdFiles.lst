@@ -1,0 +1,7 @@
+com\example\cucumber_selenium\registerSteps.class
+com\RunCucumberTest.class
+com\example\cucumber_selenium\AppTest.class
+SearchSteps.class
+com\example\cucumber_selenium\EmailVerificationSteps.class
+com\example\cucumber_selenium\loginSteps.class
+com\example\utils\EmailUtils.class
