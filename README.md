@@ -1,6 +1,6 @@
 # Java Cucumber Selenium BDD Demo
 
-[![Build Status](https://github.com/parth-283/java-cucumber-selenium-bdd-demo/workflow.yml/badge.svg)](https://github.com/parth-283/java-cucumber-selenium-bdd-demo/workflow.yml)
+[![Build Status](https://github.com/parth-283/java-cucumber-selenium-bdd-demo/blob/main/workflow.yml/badge.svg)](https://github.com/parth-283/java-cucumber-selenium-bdd-demo/blob/main/workflow.yml)
 [![codecov](https://codecov.io/gh/yourusername/your-repo/branch/main/graph/badge.svg?token=YOUR_CODECOV_TOKEN)](https://codecov.io/gh/yourusername/your-repo)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/groupId/artifactId/badge.svg)](https://maven-badges.herokuapp.com/maven-central/groupId/artifactId)
