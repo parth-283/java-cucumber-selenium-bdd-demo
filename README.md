@@ -1,10 +1,9 @@
 # Java Cucumber Selenium BDD Demo
 
-
 [![Build Status](https://github.com/yourusername/your-repo/actions/workflows/your-workflow.yml/badge.svg)](https://github.com/yourusername/your-repo/actions/workflows/your-workflow.yml)
 [![codecov](https://codecov.io/gh/yourusername/your-repo/branch/main/graph/badge.svg?token=YOUR_CODECOV_TOKEN)](https://codecov.io/gh/yourusername/your-repo)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/groupId/artifactId/badge.svg)](https://maven-badges.herokuapp.com/maven-central/groupId/artifactId)
 
 This repository demonstrates Behavior-Driven Development (BDD) testing using Java, Selenium WebDriver, and Cucumber. It serves as a practical example for setting up and running automated web tests with a focus on clear and understandable feature specifications.
 
