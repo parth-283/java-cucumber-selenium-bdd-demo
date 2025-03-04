@@ -328,7 +328,6 @@ public class ContactSteps {
 			boolean isEmailFieldBlank = emailField.getAttribute("value").isEmpty();
 			boolean isMessageFieldBlank = messageField.getAttribute("value").isEmpty();
 
-			// Print results
 			System.out.println("Name field is blank: " + isNameFieldBlank);
 			System.out.println("Email field is blank: " + isEmailFieldBlank);
 			System.out.println("Message field is blank: " + isMessageFieldBlank);
