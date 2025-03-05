@@ -4,11 +4,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.github.cdimascio.dotenv.Dotenv;
 
 public class WebDriverFactory {
+	private final Dotenv dotenv = Dotenv.load();
 
 	private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
-	private String baseUrl = "http://localhost:5000";
+	private String baseUrl = dotenv.get("PROJECT_URL");
 
 	public void setBaseUrl(String baseUrl) {
 		this.baseUrl = baseUrl;
@@ -27,9 +29,9 @@ public class WebDriverFactory {
 		}
 
 		if (relativeUrl != null && !relativeUrl.isEmpty()) {
-			driver.get().get(baseUrl + relativeUrl); // Navigate to base URL + relative URL
+			driver.get().get(baseUrl + relativeUrl);
 		} else if (baseUrl != null && !baseUrl.isEmpty()) {
-			driver.get().get(baseUrl); // Navigate to base URL if relative URL is not provided
+			driver.get().get(baseUrl);
 		}
 
 		return driver.get();

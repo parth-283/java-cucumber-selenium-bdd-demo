@@ -19,7 +19,7 @@ Feature: User Login
       | parth@sourcenettechnology.in | Parth@123 |
     And clicks the "loginbtn" button
     Then the user should see an error message "Something went wrong. Please check your credentials."
-    And the user should remain on the login page "login"
+    And the user should remain on the login page "/login"
 
   Scenario: Incorrect Username
     Given the user is on the login page
@@ -28,7 +28,7 @@ Feature: User Login
       | parth12@sourcenettechnology.in | Parth@2002 |
     And clicks the "loginbtn" button
     Then the user should see an error message "Something went wrong. Please check your credentials."
-    And the user should remain on the login page "login"
+    And the user should remain on the login page "/login"
 
   Scenario: Empty Username and Password
     Given the user is on the login page
@@ -37,7 +37,7 @@ Feature: User Login
       |          |          |
     And clicks the "loginbtn" button
     Then the user should see an error message "Username and Password are required."
-    And the user should remain on the login page "login"
+    And the user should remain on the login page "/login"
 
   Scenario: Password Visibility Toggle
     Given the user is on the login page

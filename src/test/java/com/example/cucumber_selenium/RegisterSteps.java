@@ -18,18 +18,17 @@ import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.github.cdimascio.dotenv.Dotenv;
 
 public class RegisterSteps {
-
+	private final Dotenv dotenv = Dotenv.load();
 	private WebDriver driver;
 	private WebDriverFactory webDriverFactory;
 
+	private String baseURL = dotenv.get("PROJECT_URL");
+
 	public RegisterSteps(WebDriverFactory webDriverFactory) {
 		this.webDriverFactory = webDriverFactory;
-	}
-
-	private String getExpectedRedirectUrl() {
-		return "http://localhost:5000/";
 	}
 
 	@Given("the user is on the registration page")
@@ -79,13 +78,11 @@ public class RegisterSteps {
 		try {
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
-			String expectedUrl = getExpectedRedirectUrl();
-
-			wait.until(ExpectedConditions.urlToBe(expectedUrl)); // Wait for the URL to match
+			wait.until(ExpectedConditions.urlToBe(baseURL)); // Wait for the URL to match
 
 			String currentUrl = driver.getCurrentUrl(); // Get the current URL after the wait
 
-			Assert.assertEquals("User was not redirected to the correct page.", expectedUrl, currentUrl);
+			Assert.assertEquals("User was not redirected to the correct page.", baseURL, currentUrl);
 
 			webDriverFactory.quitDriver();
 		} catch (Exception e) {
@@ -116,7 +113,7 @@ public class RegisterSteps {
 		try {
 			String currentUrl = driver.getCurrentUrl();
 
-			String expectedUrl = getExpectedRedirectUrl() + URL;
+			String expectedUrl = baseURL + URL;
 
 			Assert.assertEquals("User was not on the login page.", expectedUrl, currentUrl);
 

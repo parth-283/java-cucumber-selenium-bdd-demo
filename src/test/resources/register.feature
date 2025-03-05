@@ -18,7 +18,7 @@ Feature: User Registration
       | username                | password  |
       | parth@sourcenettechnology.in | Parth@123 |
     And clicks the register "registerbtn" button
-    Then the user should remain on the registration page "register"
+    Then the user should remain on the registration page "/register"
     And an error message "Something went wrong. Please check your credentials." should be displayed
 
   Scenario: Empty Required Fields
@@ -27,7 +27,7 @@ Feature: User Registration
       | username | password |
       |          |          |
     And clicks the register "registerbtn" button
-    Then the user should remain on the registration page "register"
+    Then the user should remain on the registration page "/register"
     And an error message "Username and Password are required." should be displayed
 
   Scenario: Password Visibility Toggle

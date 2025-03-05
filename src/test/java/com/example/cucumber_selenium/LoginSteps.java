@@ -16,20 +16,21 @@ import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.github.cdimascio.dotenv.Dotenv;
+
 import java.time.Duration;
 import org.junit.Assert;
 
 public class LoginSteps {
 
+	private final Dotenv dotenv = Dotenv.load();
 	private WebDriver driver;
 	private WebDriverFactory webDriverFactory;
 
+	private String baseURL = dotenv.get("PROJECT_URL");
+
 	public LoginSteps(WebDriverFactory webDriverFactory) {
 		this.webDriverFactory = webDriverFactory;
-	}
-
-	private String getExpectedRedirectUrl() {
-		return "http://localhost:5000/";
 	}
 
 	@Given("the user is on the login page")
@@ -79,7 +80,7 @@ public class LoginSteps {
 		try {
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
-			String expectedUrl = getExpectedRedirectUrl();
+			String expectedUrl = baseURL;
 
 			wait.until(ExpectedConditions.urlToBe(expectedUrl)); // Wait for the URL to match
 
@@ -136,7 +137,7 @@ public class LoginSteps {
 		try {
 			String currentUrl = driver.getCurrentUrl();
 
-			String expectedUrl = getExpectedRedirectUrl() + URL;
+			String expectedUrl = baseURL + URL;
 
 			Assert.assertEquals("User was not on the login page.", expectedUrl, currentUrl);
 

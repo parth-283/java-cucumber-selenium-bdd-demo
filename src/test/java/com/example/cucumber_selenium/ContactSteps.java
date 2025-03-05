@@ -22,18 +22,18 @@ import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.github.cdimascio.dotenv.Dotenv;
 
 public class ContactSteps {
 	private static final Logger logger = LoggerFactory.getLogger(ContactSteps.class);
+	private final Dotenv dotenv = Dotenv.load();
 	private WebDriver driver;
 	private WebDriverFactory webDriverFactory;
 
+	private String baseURL = dotenv.get("PROJECT_URL");
+
 	public ContactSteps(WebDriverFactory webDriverFactory) {
 		this.webDriverFactory = webDriverFactory;
-	}
-
-	private String getExpectedRedirectUrl() {
-		return "http://localhost:5000/";
 	}
 
 	@Before
@@ -67,7 +67,7 @@ public class ContactSteps {
 		contactUSOption.click();
 
 		// Wait for the URL to change to the contact page
-		wait.until(ExpectedConditions.urlToBe(getExpectedRedirectUrl() + "contact"));
+		wait.until(ExpectedConditions.urlToBe(baseURL + "/contact"));
 
 		// Print the title of the contact page
 		System.out.println("Title: " + driver.getTitle());

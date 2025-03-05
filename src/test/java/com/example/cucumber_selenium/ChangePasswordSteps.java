@@ -31,16 +31,13 @@ public class ChangePasswordSteps {
 	private WebDriverFactory webDriverFactory;
 
 	private String userName = dotenv.get("DB_USERNAME");
+	private String baseURL = dotenv.get("PROJECT_URL");
 	private String oldPassword = "Parth@2002";
 	private String newPassword;
 	private String lastPassword;
 
 	public ChangePasswordSteps(WebDriverFactory webDriverFactory) {
 		this.webDriverFactory = webDriverFactory;
-	}
-
-	private String getExpectedRedirectUrl() {
-		return "http://localhost:5000/";
 	}
 
 	@Before
@@ -74,7 +71,7 @@ public class ChangePasswordSteps {
 		logoutOption.click();
 
 		// Wait for the URL to change to the login page
-		wait.until(ExpectedConditions.urlToBe(getExpectedRedirectUrl() + "login"));
+		wait.until(ExpectedConditions.urlToBe(baseURL + "/login"));
 
 		// Print the title of the login page
 		System.out.println("Title: " + driver.getTitle());
@@ -83,7 +80,7 @@ public class ChangePasswordSteps {
 	@Given("the user is logged in and on the change password page")
 	public void the_user_is_logged_in_and_on_the_change_password_page() {
 		logger.info("Run feature 'the user is logged in and on the change password page' and redirect to login page.");
-		driver.get(getExpectedRedirectUrl() + "login");
+		driver.get(baseURL + "/login");
 		System.out.println("Title: " + driver.getTitle());
 
 		try {
@@ -105,9 +102,9 @@ public class ChangePasswordSteps {
 			// Wait for an element that confirms the user is logged in, e.g., a user profile
 			wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("task-container")));
 
-			logger.info("Wait for redirect to change password page: " + getExpectedRedirectUrl() + "change-password");
-			driver.get(getExpectedRedirectUrl() + "change-password");
-			wait.until(ExpectedConditions.urlToBe(getExpectedRedirectUrl() + "change-password"));
+			logger.info("Wait for redirect to change password page: " + baseURL + "/change-password");
+			driver.get(baseURL + "/change-password");
+			wait.until(ExpectedConditions.urlToBe(baseURL + "/change-password"));
 
 			System.out.println("Title: " + driver.getTitle());
 		} catch (Exception e) {
@@ -192,10 +189,10 @@ public class ChangePasswordSteps {
 			this.logout();
 
 			// Wait for an element that confirms the user is logged in, e.g., a user profile
-			logger.info("Wait for redirect to change password page: " + getExpectedRedirectUrl() + "login");
-			driver.get(getExpectedRedirectUrl() + "login");
+			logger.info("Wait for redirect to change password page: " + baseURL + "/login");
+			driver.get(baseURL + "/login");
 
-			wait.until(ExpectedConditions.urlToBe(getExpectedRedirectUrl() + "login"));
+			wait.until(ExpectedConditions.urlToBe(baseURL + "/login"));
 
 			System.out.println("Title: " + driver.getTitle());
 
@@ -274,7 +271,7 @@ public class ChangePasswordSteps {
 			// Wait for the menu to open
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-			wait.until(ExpectedConditions.urlToBe(getExpectedRedirectUrl() + "login"));
+			wait.until(ExpectedConditions.urlToBe(baseURL + "/login"));
 
 			System.out.println("Title: " + driver.getTitle());
 
