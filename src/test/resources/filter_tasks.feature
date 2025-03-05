@@ -5,10 +5,9 @@ Feature: Filter tasks
 
   Scenario: Hide completed tasks
     Given I have both completed and incomplete tasks
-    When I click the "Hide Completed" button
+    When I click the filter "Hide Completed" button
     Then only incomplete tasks should be visible in the task list
 
   Scenario: Show all tasks
     Given I have both completed and incomplete tasks
-    When I click the "Show All" button
     Then all tasks, completed and incomplete, should be visible
