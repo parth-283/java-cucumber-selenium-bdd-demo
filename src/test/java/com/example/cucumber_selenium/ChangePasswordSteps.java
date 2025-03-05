@@ -13,6 +13,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import io.github.cdimascio.dotenv.Dotenv;
 
 import com.example.cucumber_selenium.driver.WebDriverFactory;
 
@@ -25,10 +26,11 @@ import io.cucumber.java.en.When;
 
 public class ChangePasswordSteps {
 	private static final Logger logger = LoggerFactory.getLogger(ChangePasswordSteps.class);
+	private final Dotenv dotenv = Dotenv.load();
 	private WebDriver driver;
 	private WebDriverFactory webDriverFactory;
 
-	private String userName = "parth@sourcenettechnology.in";
+	private String userName = dotenv.get("DB_USERNAME");
 	private String oldPassword = "Parth@2002";
 	private String newPassword;
 	private String lastPassword;
@@ -159,7 +161,7 @@ public class ChangePasswordSteps {
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Then("the user should see an error message on change password {string}")
 	public void the_user_should_see_an_error_message_on_change_password(String string) {
 		try {

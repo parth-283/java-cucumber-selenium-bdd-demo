@@ -1,1 +1,47 @@
+# Environment files
+.env
+.env.*
+
+# IDE-specific files
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+
+# Build artifacts
 /target/
+/build/
+
+# Dependency directories (if any)
+/lib/
+/bin/
+
+/dist/
+
+# Log files
+*.log
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# Tool-specific files
+cucumber-html-reports/
+surefire-reports/
+
+# Temporary or debug files
+*.tmp
+*.bak
+*.swp
+
+# Java-specific files
+*.class
+*.jar
+*.war
+*.ear
+
+# Other unwanted files
+/.vscode/
+/*.out
+/*.err
