@@ -5,5 +5,5 @@ Feature: Delete tasks
 
   Scenario: Delete an existing task
     Given I have a task named "Buy milk"
-    When I click the delete button for the task
+    When I click the delete button for the task named "Buy milk"
     Then the task "Buy milk" should no longer appear in the task list

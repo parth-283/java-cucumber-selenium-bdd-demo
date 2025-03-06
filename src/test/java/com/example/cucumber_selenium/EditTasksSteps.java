@@ -61,29 +61,6 @@ public class EditTasksSteps {
 		logger.info("Login method executed successfully.");
 	}
 
-	public void logout() {
-		// Wait for the menu to open
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
-		WebElement menuToggle = wait.until(ExpectedConditions.elementToBeClickable(By.id("menu-toggle")));
-
-		// Click the menu toggle to open the menu
-		menuToggle.click();
-
-		// Wait for the "LogOut" option to be visible and clickable
-		WebElement logoutOption = wait
-				.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[text()='LogOut']")));
-
-		// Click the "LogOut" option
-		logoutOption.click();
-
-		// Wait for the URL to change to the login page
-		wait.until(ExpectedConditions.urlToBe(baseURL + "/login"));
-
-		// Print the title of the login page
-		System.out.println("Title: " + driver.getTitle());
-	}
-
 	@Given("I have a task named {string}")
 	public void i_have_a_task_named(String string) {
 		try {
@@ -91,6 +68,7 @@ public class EditTasksSteps {
 
 			boolean taskExists = false;
 
+			System.out.println("Title: " + driver.getTitle());
 			logger.info("Starting scenario: I have a task named '{}'", string);
 
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(DEFAULT_WAIT_TIME));
@@ -297,5 +275,4 @@ public class EditTasksSteps {
 			logger.info("Finished executing the step 'I have a task named {}'", string);
 		}
 	}
-
 }
