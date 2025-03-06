@@ -5,7 +5,7 @@ Feature: Edit tasks
 
   Scenario: Edit a task successfully
     Given I have a task named "Call mom"
-    When I click the edit button for the task
-    And I change the text to "Call mom and dad"
-    And I click the save button
+    When I click the edit button for the task named "Call mom"
+    And I change the text "Call mom" to "Call mom and dad"
+    And I click the save button for the task named "Call mom and dad"
     Then the task should update to "Call mom and dad" in the task list
