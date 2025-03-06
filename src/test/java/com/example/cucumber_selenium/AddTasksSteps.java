@@ -28,7 +28,7 @@ public class AddTasksSteps {
 	private WebDriverFactory webDriverFactory;
 
 	private String userName = dotenv.get("DB_USERNAME");
-	private String Password = dotenv.get("DB_Password");
+	private String Password = dotenv.get("DB_PASSWORD");
 	private String baseURL = dotenv.get("PROJECT_URL");
 
 	public AddTasksSteps(WebDriverFactory webDriverFactory) {

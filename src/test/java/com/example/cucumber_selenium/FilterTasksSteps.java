@@ -32,9 +32,9 @@ public class FilterTasksSteps {
 	private WebDriverFactory webDriverFactory;
 
 	private String userName = dotenv.get("DB_USERNAME");
-	private String Password = dotenv.get("DB_Password");
+	private String Password = dotenv.get("DB_PASSWORD");
 	private String baseURL = dotenv.get("PROJECT_URL");
-	private int WaitTime = 5;
+	private static final int DEFAULT_WAIT_TIME = 5;
 
 	public FilterTasksSteps(WebDriverFactory webDriverFactory) {
 		this.webDriverFactory = webDriverFactory;
@@ -60,7 +60,7 @@ public class FilterTasksSteps {
 		System.out.println("Title: " + driver.getTitle());
 
 		try {
-			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(WaitTime));
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(DEFAULT_WAIT_TIME));
 
 			logger.info("Attempting to log in with user credentials.");
 			WebElement usernameField = driver.findElement(By.name("username"));
@@ -94,7 +94,7 @@ public class FilterTasksSteps {
 			int totalCheckedTasks = 0;
 
 			logger.info("Running the feature 'I have both completed and incomplete tasks'");
-			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(WaitTime));
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(DEFAULT_WAIT_TIME));
 
 			// Wait for the <ul> element to become visible
 			WebElement tasksList = wait.until(ExpectedConditions
@@ -134,7 +134,7 @@ public class FilterTasksSteps {
 		try {
 			logger.info("Running the feature 'I click the filter {string} button'.");
 
-			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(WaitTime));
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(DEFAULT_WAIT_TIME));
 
 			logger.info("Attempting to click the " + string + " button.");
 			WebElement filterButton = wait
@@ -161,7 +161,7 @@ public class FilterTasksSteps {
 			int totalCheckedTasks = 0;
 
 			logger.info("Running the feature 'only incomplete tasks should be visible in the task list'");
-			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(WaitTime));
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(DEFAULT_WAIT_TIME));
 
 			// Wait for the <ul> element to become visible
 			WebElement tasksList = wait.until(ExpectedConditions
@@ -204,7 +204,7 @@ public class FilterTasksSteps {
 			int totalCheckedTasks = 0;
 
 			logger.info("Running the feature 'all tasks, completed and incomplete, should be visible'");
-			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(WaitTime));
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(DEFAULT_WAIT_TIME));
 
 			// Wait for the <ul> element to become visible
 			WebElement tasksList = wait.until(ExpectedConditions
